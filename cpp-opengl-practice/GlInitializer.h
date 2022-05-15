@@ -3,6 +3,7 @@
 #define GL_INITIALIZER_H
 
 #include <string>
+#include <GL/glew.h>
 
 using std::string;
 
@@ -15,7 +16,6 @@ private:
 	string windowTitle;
 
 	void initializeWindow();
-	void initializeDisplayFunc();
 
 public:
 	/// <summary>
@@ -40,7 +40,12 @@ public:
 	/// the data for argv will be updated because glutInit extracts any
 	/// command line options understood by the GLUT library. 
 	/// </param>
-	void initialize(int argc, char* argv[]);
+	/// <returns>True if the initialization was a success, false otherwise.</returns>
+	bool initialize(int argc, char* argv[]);
+	/// <summary>
+	/// Initializes the display callback for the current window.
+	/// </summary>
+	void initializeDisplayFunc();
 };
 
 #endif
